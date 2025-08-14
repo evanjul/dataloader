@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=42.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ejs-dataloader"
+version = "0.1.0"
+description = "A tool for loading and processing data from HuggingFace"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fsspec>=2025.7.0",
+    "mlx>=0.28.0",
+    "pandas",
+    "torch>=2.8.0",
+    "urllib3>=2.0.0",
+    "huggingface_hub",
+    "transformers",
+    "sqlalchemy>=2.0.43",
+    "pydantic>=2.11.7",
+    "datasets>=2.14.4",
+]
+
+[project.scripts]
+ejs-dataloader = "ejs_dataloader.__main__:main"
+
+[options]
+package_dir = { "" = "src" }
+packages = ["ejs_dataloader"]
+include_package_data = true
+zip_safe = false
+
+[options.package_data]
+"*" = ["*.py"]
+"tests" = ["*.py"]

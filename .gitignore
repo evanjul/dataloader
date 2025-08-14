@@ -1,0 +1,28 @@
+# Python-generated files
+
+
+
+__pycache__/
+*.egg-info
+*.py[oc]
+wheels/
+build/
+dist/
+
+# Virtual environments
+.venv
+urls.json
+
+# Config files
+scripts/
+*.cfg
+
+# Database
+database/
+*.db
+
+# Allow src/huggingface_dataloader/ but ignore other files in src/
+src/*
+!src/huggingface_dataloader/
+!src/huggingface_dataloader/__init__.py
+!src/huggingface_dataloader/__main__.py
