@@ -1,12 +1,16 @@
 from typing import Optional, Callable, Generator, Sequence
 from pydantic import BaseModel, Field
 
+
 class TestDataModel(BaseModel):
+    
     class_: Optional[object] = Field(default=Optional[object])
     function: Optional[Callable[[], None]] = Field(default=Optional[Callable[[], None]])
     limit: Optional[int] = Field(default=Optional[int])
+    
     args: Optional[tuple] = Field(default=Optional[tuple])
     kwargs: Optional[dict] = Field(default=Optional[dict])
+
     url: Optional[str] = Field(default=Optional[str])
     limit: Optional[int] = Field(default=Optional[int])
     
