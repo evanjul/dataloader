@@ -11,6 +11,8 @@ def test_event_loop(args, limit):
     for idx, url in enumerate(args.urls):
         if isinstance(url,list):
             print(idx, url, type(url), limit)
+            data = TestDataGenerator(url, limit)
+            
 
         
         

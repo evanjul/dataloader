@@ -1,0 +1,3 @@
+uv run main.py --test --urls "hf://datasets/fka/awesome-chatgpt-prompts/pro
+mpts.csv" "https://huggingface.co/datasets/rubend18/ChatGPT-Jailbreak-Prompts" "https://huggingface.co/datasets/JuanjoLopez
+19/Software-Engineering-Dataset_90_10_EN" --limit=10

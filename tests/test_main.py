@@ -39,7 +39,9 @@ class TestMain(unittest.TestCase):
         mock_main.side_effect = Exception("Test error")
         
         with patch('builtins.print') as mock_print:
-            event_loop(test_mode=False, main_mode=True, args=args)
+            with self.assertRaises(Exception):
+                event_loop(test_mode=False, main_mode=True, args=args)
+            # Verify only error message was printed, no timing
             mock_print.assert_called_once_with("Error in Main: Test error")
 
     @patch('main.test_event_loop')
@@ -56,9 +58,8 @@ class TestMain(unittest.TestCase):
             
             # Verify timing output was printed
             calls = mock_print.call_args_list
-            self.assertEqual(len(calls), 2)  # Error message and timing
-            timing_call = calls[1]
-            self.assertTrue(timing_call[0][0].startswith("Total time:"))
+            self.assertEqual(len(calls), 1)  # Only timing should be printed on success
+            self.assertTrue(calls[0][0][0].startswith("Total time:"))
 
 if __name__ == '__main__':
     unittest.main()

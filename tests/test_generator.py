@@ -23,7 +23,11 @@ class TestDataGenerator:
 
 
 class TestDataGeneratorV2:
+    def __init__(self, filepath_or_buffer: Optional[str], limit: Optional[int]):
+        self.filepath_or_buffer = filepath_or_buffer
+        self.limit = limit
     
-    
-    pass 
+    def __call__(self) -> Generator[pd.DataFrame, None, None]:
+        return pd.read_csv(self.filepath_or_buffer).head(self.limit)
+
 
